@@ -16,11 +16,9 @@ describe('Teste o componente<About.tsx />', () => {
   test('A página contém dois parágrafos com texto sobre a Pokédex.', () => {
     renderWithRouter(<App />, { route: '/about' });
     // buscar elementos:
-    const paragraphOn = screen.getByText(/this application simulates a pokédex, a digital encyclopedia containing all pokémon/i);
-    const paragraphTwo = screen.getByText(/one can filter pokémon by type, and see more details for each one of them/i);
+    const paragraph = screen.getAllByText(/pokémon/i, { selector: 'p' });
     // aferir:
-    expect(paragraphOn).toBeInTheDocument();
-    expect(paragraphTwo).toBeInTheDocument();
+    expect(paragraph).toHaveLength(2);
   });
 
   test('A página contém uma imagem de Pokédex.', () => {
